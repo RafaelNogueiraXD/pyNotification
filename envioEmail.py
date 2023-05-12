@@ -1,7 +1,7 @@
 import smtplib
 from email.mime.text import MIMEText
 username = 'testexe2904@gmail.com'
-password = 'jqwpgeznozdmgbjd'
+password = 'gjewssljkazolath'
 
 smtp_server = 'smtp.gmail.com'
 smtp_port = 587
@@ -17,6 +17,8 @@ with smtplib.SMTP(smtp_server, smtp_port) as servidor_smtp:
         servidor_smtp.starttls()
         servidor_smtp.login(smtp_username,smtp_password)
         servidor_smtp.sendmail(mensagem["From"], mensagem["To"], mensagem.as_string())
+
+
 #será usado futuramente 
 def ler_arquivo_html(arquivo):
     with open(arquivo, 'r') as f:
