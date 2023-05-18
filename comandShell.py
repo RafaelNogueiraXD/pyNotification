@@ -1,11 +1,14 @@
 import subprocess
-import shlex, subprocess
-command_line = input()
-# /bin/vikings -input eggs.txt -output "spam spam.txt" -cmd "echo '$MONEY'"
-# args = shlex.split(command_line)
-# print(args)
-# ['/bin/vikings', '-input', 'eggs.txt', '-output', 'spam spam.txt', '-cmd', "echo '$MONEY'"]
-# p = subprocess.Popen(command_line) # Success!
-# Executa o comando "ls" em um terminal e captura a saída em uma variável
-# output = subprocess.check_output(["ls"])
-print(command_line.encode())
+
+caminho_arquivo = './bash.sh'
+
+processo = subprocess.Popen(['bash', caminho_arquivo], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+saida, erro = processo.communicate()
+
+if processo.returncode == 0:
+    # print('Arquivo bash executado com sucesso!')
+    print('\tSaída:\n', saida.decode())
+else:
+    print('Erro ao executar o arquivo bash:')
+    print('Saída:', saida.decode())
+    print('Erro:', erro.decode())
