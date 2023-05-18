@@ -9,3 +9,6 @@ email: LeaPyLab@gmail.com
 senha: RMRNJA@99
 
 
+metas
+    - testar logging
+    - fazer diagrama do sistema
