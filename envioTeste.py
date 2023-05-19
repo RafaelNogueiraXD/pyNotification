@@ -37,7 +37,7 @@ def envia_email():
         
         message['To'] = Email_padrao
         message['From'] = Email_padrao
-        message['Subject'] = 'Exemplo 2 de envio de e-mail'
+        message['Subject'] = 'Exemplo de envio de e-mail'
         
         # Codifica a mensagem em base64
         encoded_message = base64.urlsafe_b64encode(message.as_bytes()).decode()
