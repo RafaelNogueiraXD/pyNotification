@@ -12,17 +12,4 @@ senha: RMRNJA@99
 metas
     - testar logging
     - fazer diagrama do sistema
-    Para enviar para verificação, siga as etapas abaixo:
-
-Acesse a página da tela de consentimento OAuth do Console do Google Cloud.
-Quando solicitado,selecione o projeto do seu app.
-Se você não conseguir encontrar seu projeto e souber o ID do projeto, poderá criar um URL em seu navegador no formato https://console.cloud.google.com/apis/credentials/consent?project=[PROJECT_ID] onde [PROJECT_ID] é o ID do projeto que você deseja usar.
-Uma vez na página da tela de consentimento OAuth para o projeto que você deseja enviar:
-Se você for solicitado a criar uma tela de consentimento e seu aplicativo não estiver restrito a usuários da sua organização, selecioneExterno eclique no botãoCriar. Se você já criou uma tela de consentimento, não verá esta solicitação.
-Caso contrário, cliqueno botãoEditar aplicativona parte superior da página.
-Insira as informações necessárias nas páginas de configuração. Além dos campos obrigatórios, você deve fornecer links para a página inicial do seu aplicativo, política de privacidade e termos de serviço, bem como os escopos que está solicitando, justificativa para a necessidade dos dados e um link para um vídeo demonstrando como seu aplicativo usa os dados.
-
-Clique em Salvar e continuar depois de concluir cada página.
-
-Quando todas as informações necessárias forem preenchidas, clique em Preparar para verificação na parte inferior da última página.
-Na tela Preparar para verificação, confirme se as informações em cada página estão corretas e clique emEnviar para verificaçãona última página.
+   

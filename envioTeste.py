@@ -7,6 +7,7 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 import google.auth
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
+from pseudoController import executaFuncoes
 
 Email_padrao = 'leapylab@gmail.com'
 Email_destino = 'testexe2904@gmail.com'
@@ -33,7 +34,7 @@ def envia_email():
         
         # Cria uma mensagem de e-mail
         message = EmailMessage()
-        message.set_content('Olá, este é um exemplo de envio de e-mail via API do Gmail.')
+        message.set_content(executaFuncoes())
         
         message['To'] = Email_padrao
         message['From'] = Email_padrao

@@ -1,3 +1,3 @@
 #!/nin/bash
 
-ls
+ls -l
