@@ -7,7 +7,7 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 import google.auth
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
-from pseudoController import executaFuncoes
+from pseudoController import executaFuncoes, addTitle
 
 Email_padrao = 'leapylab@gmail.com'
 Email_destino = 'testexe2904@gmail.com'
@@ -15,9 +15,10 @@ SCOPES = ['https://mail.google.com/']
 creds = None
 
 def envia_email():
+    # verifica sem o determinado token existe
     if os.path.exists('token.json'):
         creds = Credentials.from_authorized_user_file('token.json', SCOPES)
-        
+        # se a credencial não existe ou não esta mais na data 
         if not creds or not creds.valid:
             if creds and creds.expired and creds.refresh_token:
                 creds.refresh(Request())
@@ -34,11 +35,12 @@ def envia_email():
         
         # Cria uma mensagem de e-mail
         message = EmailMessage()
-        message.set_content(executaFuncoes())
         
         message['To'] = Email_padrao
         message['From'] = Email_padrao
-        message['Subject'] = 'Exemplo de envio de e-mail'
+        message['Subject'] = addTitle()
+        message.set_content(executaFuncoes())
+        
         
         # Codifica a mensagem em base64
         encoded_message = base64.urlsafe_b64encode(message.as_bytes()).decode()
