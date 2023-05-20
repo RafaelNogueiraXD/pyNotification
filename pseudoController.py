@@ -23,7 +23,7 @@ def executaFuncoes():
     HorarioFinal = hora_atual_numerica()
     tempoExec = HorarioFinal - HorarioInicial
     print("\nAdicione uma observacao ao email: ")
-    obs = input()
+    obs = "sem observações"
     saida = "O programa foi executado dia: " + data_hora_formatada + "\n" + retornoBash + "\n tempo de execução: " + str(tempoExec) + " segundos "
     saida = saida + "\n Observacao: " + obs
     return saida

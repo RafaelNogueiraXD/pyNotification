@@ -8,7 +8,7 @@ import google.auth
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from pseudoController import executaFuncoes, addTitle
-
+from gptIA import gtpAssistant
 Email_padrao = 'leapylab@gmail.com'
 Email_destino = 'testexe2904@gmail.com'
 SCOPES = ['https://mail.google.com/']
@@ -38,7 +38,7 @@ def envia_email():
         
         message['To'] = Email_padrao
         message['From'] = Email_padrao
-        message['Subject'] = addTitle()
+        message['Subject'] = gtpAssistant("gmail")
         message.set_content(executaFuncoes())
         
         
@@ -59,4 +59,4 @@ def envia_email():
         print(error)
     
 if __name__ == '__main__':
-    envia_email()
+        envia_email()
