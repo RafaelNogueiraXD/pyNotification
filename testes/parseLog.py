@@ -4,10 +4,10 @@ import logging
 def parse_arguments():
     parser = argparse.ArgumentParser()
     # adiciona argumentos
-    parser.add_argument("-v", "--verbose", action="store_true", help="diz alguma coisa")
-
+    parser.add_argument("email" ,type=str , help="Enviar para: origin - teste - exemplo@gmail.com")
+    parser.add_argument("-gpt" ,type=str , help="Usar o auxilio da IA")
+    parser.add_argument("-v", "--verbose",action="store_true")
     help_msg = "Logging level (INFO=%d DEBUG=%d)" % (logging.INFO, logging.DEBUG)
-
     args = parser.parse_args()
     return args
 
@@ -19,16 +19,18 @@ def configure_logging(verbose):
     else:
         logging.basicConfig(format='%(message)s', level=verbose)
 
-# def calculate_square(args):
-#     answer = args.square**2
-#     if args.verbose:
-#         print(f"A conta de {args.square} igual {answer}")
-#     else:
-#         print(answer)
+def email_identify(args):
+    if args.email == "origin":
+        return 'leapylab@gmail.com'
+    elif args.email == "teste":
+        return 'testexe2904@gmail.com'
+    else:
+        return args.email 
 
 def main():
     args = parse_arguments()
     configure_logging(args.verbose)
+    print(email_identify(args))
     # calculate_square(args)
 
 if __name__ == "__main__":

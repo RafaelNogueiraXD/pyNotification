@@ -7,8 +7,8 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 import google.auth
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
-from pseudoController import executaFuncoes, addTitle
-from gptIA import gtpAssistant
+from pseudoController import executaFuncoes
+from gptIA import gtpAssistant 
 Email_padrao = 'leapylab@gmail.com'
 Email_destino = 'testexe2904@gmail.com'
 SCOPES = ['https://mail.google.com/']
@@ -29,17 +29,17 @@ def envia_email():
             with open('token.json', 'w') as token:
                 token.write(creds.to_json())
     
-    try:
+    try: 
         # Cria o serviço Gmail API
         service = build('gmail', 'v1', credentials=creds)
         
         # Cria uma mensagem de e-mail
         message = EmailMessage()
-        
-        message['To'] = Email_padrao
+        dataMessage = executaFuncoes()
+        message['To'] =  dataMessage["email"]
         message['From'] = Email_padrao
-        message['Subject'] = gtpAssistant("gmail")
-        message.set_content(executaFuncoes())
+        message['Subject'] = dataMessage["title"]
+        message.set_content(dataMessage["content"])
         
         
         # Codifica a mensagem em base64
