@@ -5,7 +5,7 @@ def parse_arguments():
     parser = argparse.ArgumentParser()
     # adiciona argumentos
     parser.add_argument("email" ,type=str , help="Enviar para: origin - teste - exemplo@gmail.com")
-    parser.add_argument("-gpt" ,type=str , help="Usar o auxilio da IA")
+    parser.add_argument("-gpt",type=str , help="Usar o auxilio da IA")
     parser.add_argument("-v", "--verbose",action="store_true")
     help_msg = "Logging level (INFO=%d DEBUG=%d)" % (logging.INFO, logging.DEBUG)
     args = parser.parse_args()

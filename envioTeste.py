@@ -16,7 +16,7 @@ creds = None
 
 def envia_email():
     # verifica sem o determinado token existe
-    if os.path.exists('token.json'):
+    if os.path.exists('token.json'): 
         creds = Credentials.from_authorized_user_file('token.json', SCOPES)
         # se a credencial não existe ou não esta mais na data 
         if not creds or not creds.valid:

@@ -1,6 +1,7 @@
 from testes import parseLog, comandShell
 from testes.parseLog import parse_arguments, configure_logging, email_identify
 from testes.comandShell import pegar_arq_bash
+from testes.executa import executaBash
 from datetime import datetime
 from gptIA import gtpAssistant
 
@@ -30,7 +31,7 @@ def executaFuncoes():
     configure_logging(args.verbose)
     # calculate_square(args)
     HorarioInicial = hora_atual_numerica()
-    retornoBash = pegar_arq_bash()
+    retornoBash = executaBash()
     HorarioFinal = hora_atual_numerica()
     tempoExec = HorarioFinal - HorarioInicial
     obs = "sem observações"

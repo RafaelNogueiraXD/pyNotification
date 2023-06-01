@@ -7,9 +7,12 @@ Email:
 Nome: Lea Lab
 email: LeaPyLab@gmail.com
 senha: RMRNJA@99
-
-
+- links sendo usados:
+    https://platform.openai.com/docs/api-reference/introduction
+    https://docs.python.org/3.10/howto/argparse.html#getting-a-little-more-advanced
+    https://developers.google.com/gmail/api/guides/threads?hl=pt-br
+    https://console.cloud.google.com/apis/credentials/consent?authuser=5&project=pynotification&supportedpurview=project
 metas
-    - testar logging
     - fazer diagrama do sistema
-   
+    - fazer documento SIEPE
+    - opcao - i(arquivo.sh) e -o(arquivoSaida.txt), -z para anexar. 
