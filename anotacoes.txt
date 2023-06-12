@@ -2,7 +2,9 @@ Possiveis bibliotecas em python a serem usadas:
 smtplib - uma biblioteca padrão do Python que fornece uma interface simples para enviar e-mails usando o protocolo SMTP (Simple Mail Transfer Protocol).
 yagmail - uma biblioteca Python que fornece uma interface fácil de usar para enviar e-mails usando o Gmail. Ele suporta anexos de arquivos e mensagens em HTML.
 email - outra biblioteca padrão do Python que pode ser usada para criar e enviar mensagens de e-mail. Ele fornece uma API mais baixo nível para trabalhar com e-mails, permitindo um maior controle sobre o processo de envio. 
-
+Instalar bibliotecas:
+    pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib
+    
 Email: 
 Nome: Lea Lab
 email: LeaPyLab@gmail.com

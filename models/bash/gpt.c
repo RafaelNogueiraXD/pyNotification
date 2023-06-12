@@ -27,7 +27,7 @@ int main() {
     
     int i, j;
     int min_size = 10;
-    int max_size = 5000;
+    int max_size = 1000;
     int increment = 1;
     
     FILE *arquivo = fopen("desempenho.txt", "w");

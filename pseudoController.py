@@ -1,7 +1,6 @@
-from testes import parseLog, comandShell
-from testes.parseLog import parse_arguments, configure_logging, email_identify
-from testes.comandShell import pegar_arq_bash
-from testes.executa import executaBash
+from models import parseLog, comandShell
+from models.parseLog import parse_arguments, configure_logging, email_identify
+from models.executaBash import executaBash
 from datetime import datetime
 from gptIA import gtpAssistant
 
