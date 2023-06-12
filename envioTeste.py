@@ -9,11 +9,15 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from pseudoController import executaFuncoes
 from gptIA import gtpAssistant 
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.mime.base import MIMEBase
+from email import encoders
+import mimetypes
 Email_padrao = 'leapylab@gmail.com'
 Email_destino = 'testexe2904@gmail.com'
 SCOPES = ['https://mail.google.com/']
 creds = None
-
 def envia_email():
     # verifica sem o determinado token existe
     if os.path.exists('token.json'): 
@@ -34,13 +38,30 @@ def envia_email():
         service = build('gmail', 'v1', credentials=creds)
         
         # Cria uma mensagem de e-mail
-        message = EmailMessage()
+        message = MIMEMultipart()
         dataMessage = executaFuncoes()
         message['To'] =  dataMessage["email"]
         message['From'] = Email_padrao
         message['Subject'] = dataMessage["title"]
-        message.set_content(dataMessage["content"])
-        
+        # file_attachments = dataMessage["file"]
+        file_attachments = [dataMessage["file"]]
+        message.attach(MIMEText(dataMessage['content'], 'plain')) 
+        # message.set_content(dataMessage["content"])
+        for attachment in file_attachments:
+            content_type, encoding = mimetypes.guess_type(attachment)
+            main_type, sub_type = content_type.split('/', 1)
+            file_name = os.path.basename(attachment)
+
+            f = open(attachment, 'rb')
+
+            myFile = MIMEBase(main_type, sub_type)
+            myFile.set_payload(f.read())
+            myFile.add_header('Content-Disposition', 'attachment', filename=file_name)
+            encoders.encode_base64(myFile)
+
+            f.close()
+
+            message.attach(myFile)
         
         # Codifica a mensagem em base64
         encoded_message = base64.urlsafe_b64encode(message.as_bytes()).decode()

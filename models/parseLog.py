@@ -6,6 +6,8 @@ def parse_arguments():
     # adiciona argumentos
     parser.add_argument("email" ,type=str , help="Enviar para: origin - teste - exemplo@gmail.com")
     parser.add_argument("-gpt",type=str , help="Usar o auxilio da IA")
+    parser.add_argument("-i",type=str , help="Escolher arquivo de entrada")
+    parser.add_argument("-o",type=str , help="Escolher arquivo de saida")
     parser.add_argument("-v", "--verbose",action="store_true")
     help_msg = "Logging level (INFO=%d DEBUG=%d)" % (logging.INFO, logging.DEBUG)
     args = parser.parse_args()
@@ -26,11 +28,17 @@ def email_identify(args):
         return 'testexe2904@gmail.com'
     else:
         return args.email 
-
+#nao esta pronto, em andamento
+def fileOutput(args):
+    if args.o == "teste.txt":
+        return "arquivo teste"
+    else:
+        return "nao encontrado"
 def main():
     args = parse_arguments()
     configure_logging(args.verbose)
     print(email_identify(args))
+    print(fileOutput(args))
     # calculate_square(args)
 
 if __name__ == "__main__":

@@ -1,6 +1,7 @@
-from models import parseLog, comandShell
+from models import parseLog
 from models.parseLog import parse_arguments, configure_logging, email_identify
 from models.executaBash import executaBash
+from models.acharArquivo import encontrar_arquivo
 from datetime import datetime
 from gptIA import gtpAssistant
 
@@ -40,8 +41,8 @@ def executaFuncoes():
         dataHelper = withGpt(saida)
     else:
         dataHelper = manualInfo(saida) 
-    
-    dataMessage = {"email": email_identify(args),"title":  dataHelper["title"],"content": dataHelper["output"]}
+    arquivoZipado = encontrar_arquivo("arquivo.zip","/home/rafael/Área de Trabalho/trabalhos/pyNotification/")
+    dataMessage = {"email": email_identify(args),"title":  dataHelper["title"],"content": dataHelper["output"],"file": arquivoZipado}
     return dataMessage
 
     
@@ -51,3 +52,4 @@ if __name__ == "__main__":
     print("envia para: " + teste["email"]) 
     print(teste["title"]) 
     print(teste["content"]) 
+    print(teste["file"]) 
