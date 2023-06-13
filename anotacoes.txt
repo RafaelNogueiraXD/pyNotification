@@ -15,6 +15,5 @@ senha: RMRNJA@99
     https://developers.google.com/gmail/api/guides/threads?hl=pt-br
     https://console.cloud.google.com/apis/credentials/consent?authuser=5&project=pynotification&supportedpurview=project
 metas
-    - fazer diagrama do sistema
     - fazer documento SIEPE
-    - opcao - i(arquivo.sh) e -o(arquivoSaida.txt), -z para anexar. 
+    - opcao -z para anexar. 

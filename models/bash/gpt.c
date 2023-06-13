@@ -22,12 +22,11 @@ int selection_sort(int arr[], int n) {
 }
 
 int main() {
-    printf("iniciando criacao de dados");
     srand(time(NULL));
     
     int i, j;
     int min_size = 10;
-    int max_size = 1000;
+    int max_size = 2500;
     int increment = 1;
     
     FILE *arquivo = fopen("desempenho.txt", "w");

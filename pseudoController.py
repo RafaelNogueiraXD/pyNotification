@@ -1,4 +1,5 @@
 from models import parseLog
+import models.parseLog
 from models.parseLog import parse_arguments, configure_logging, email_identify
 from models.executaBash import executaBash
 from models.acharArquivo import encontrar_arquivo
@@ -21,9 +22,9 @@ def withGpt(saidaGeral):
     return {"title": title, "output": saida}
 
 def manualInfo(saida):
-    print("Digite o titulo da mensagem: ")
-    title = input()
-    return {"title": title, "output": saida}
+    # print("Digite o titulo da mensagem: ")
+    # title = input()
+    return {"title": data_hora_formatada, "output": saida}
 
 
 def executaFuncoes():
@@ -31,7 +32,7 @@ def executaFuncoes():
     configure_logging(args.verbose)
     # calculate_square(args)
     HorarioInicial = hora_atual_numerica()
-    retornoBash = executaBash()
+    retornoBash = executaBash(parseLog.fileInput(args))
     HorarioFinal = hora_atual_numerica()
     tempoExec = HorarioFinal - HorarioInicial
     obs = "sem observações"
@@ -41,7 +42,7 @@ def executaFuncoes():
         dataHelper = withGpt(saida)
     else:
         dataHelper = manualInfo(saida) 
-    arquivoZipado = encontrar_arquivo("arquivo.zip","/home/rafael/Área de Trabalho/trabalhos/pyNotification/")
+    arquivoZipado = encontrar_arquivo(parseLog.fileOutput(args))
     dataMessage = {"email": email_identify(args),"title":  dataHelper["title"],"content": dataHelper["output"],"file": arquivoZipado}
     return dataMessage
 

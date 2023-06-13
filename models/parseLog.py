@@ -30,15 +30,21 @@ def email_identify(args):
         return args.email 
 #nao esta pronto, em andamento
 def fileOutput(args):
-    if args.o == "teste.txt":
-        return "arquivo teste"
+    if args.o:
+        return str(args.o)
     else:
-        return "nao encontrado"
+        return "/home/rafael/Área de Trabalho/trabalhos/pyNotification/arquivo.zip"
+def fileInput(args):
+    if args.i:
+        return str(args.i)
+    else:
+        return "/home/rafael/Área de Trabalho/trabalhos/pyNotification/models/bash/execC.sh"
 def main():
     args = parse_arguments()
     configure_logging(args.verbose)
     print(email_identify(args))
     print(fileOutput(args))
+    print(fileInput(args))
     # calculate_square(args)
 
 if __name__ == "__main__":
